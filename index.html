@@ -8,19 +8,39 @@
 </head>
 <body>
     <main>
-        <section>
-            <h1>Calcola il prezzo del tuo biglietto</h1>
-            <form action="" method="get" id="form-element">
-                <input id="travel-km" type="text">
-                <input id="passenger-age" type="text">
-                <button type="submit">Calcola</button> 
+        <section class="container">
+            <h1 class="my-5 text-center">Calcola il prezzo del tuo biglietto</h1>
+            <form action="" method="get" id="form-element" class="row g-3 justify-content-center">
+                <div class="col-auto">
+                    <input class="form-control" id="travel-km" type="text" placeholder="Inserisici i km da percorrere">
+                </div>
+                <div class="col-auto">
+                    <input class="form-control" id="passenger-age" type="text" placeholder="Inserisci la tua età">
+                </div>
+                <div class="col-auto">
+                    <button class=" btn btn-primary" type="submit">Calcola</button>
+                </div>
+                
+                
             </form>
         </section>
-        <section>
-            <h2>prezzo</h2>
-            <p id="price">
-
-            </p>
+        <section class="container d-flex justify-content-center my-5">
+            <div id="price-section" class="card d-none" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">prezzo</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                  <p id="price" class="card-text"></p>
+                  <button id="recharge-btn" class="btn btn-primary" type="reset">Fatto</button>
+                </div>
+              </div>
+              <div id="alert-section" class="card d-none">
+                <h5 class="card-header">Attenzione!</h5>
+                <div class="card-body">
+                  <h5 class="card-title">Dati non validi</h5>
+                  <p id="error-text" class="card-text"></p>
+                  <button id="reset-btn" class="btn btn-danger" type="reset">Riprova</button>
+                </div>
+              </div>
         </section>
     
     </main>

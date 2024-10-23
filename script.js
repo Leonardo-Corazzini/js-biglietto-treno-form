@@ -1,25 +1,56 @@
 // dati da inserire da parte dell'utente
 const travelKm =  document.getElementById('travel-km');
 const passengerAge = document.getElementById('passenger-age');
+
+
 const price = document.getElementById('price')
 const formElement = document.getElementById('form-element');
+const priceSection = document.getElementById('price-section')
+const rechargeBtn = document.getElementById('recharge-btn')
+const resetBtn = document.getElementById('reset-btn')
+const alertSection = document.getElementById('alert-section')
+const errorText = document.getElementById ('error-text')
 // azioni che vengono eseguite all'invio dei dei dati
+
 formElement.addEventListener('submit', function (event) {
     
     event.preventDefault();
-  
-    const km = travelKm.value;
+
+    priceSection.classList.add('d-none');
+    alertSection.classList.add('d-none')
+    const km = parseInt(travelKm.value);
     console.log(km);
-    const age = passengerAge.value;
+    const controlKM = controlData (km);
+    const age = parseInt(passengerAge.value);
     console.log(age);
-    const userPrice = priceCalcolator (km,age);
-    console.log(userPrice)
-    travelKm.value = '';
-    passengerAge.value = '';
-    price.innerText= userPrice
+    const controlAge = controlData (km);
+    if (controlKM && controlAge){
+        const userPrice = priceCalcolator (km,age);
+        console.log(userPrice);
+        priceSection.classList.remove('d-none');
+        price.innerText= userPrice;
+    }
+    
+    // travelKm.value = '';
+    // passengerAge.value = '';
 });
-
-
+rechargeBtn.addEventListener('click',function(){
+    location.reload()
+})
+resetBtn.addEventListener('click',function(){
+    location.reload()
+})
+// validazione dati
+function controlData (number){
+    let isANumber = true
+    if(isNaN(number)){
+        alertSection.classList.remove('d-none')
+        errorText.innerText = 'Solo validi soltanto caratteri numerici'; 
+        isANumber = false;
+    }
+    return isANumber ;
+    
+};
 // funzione di calcolo prezzo
  function priceCalcolator (km,age){
     const priceForKm = 0.21
