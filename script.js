@@ -1,7 +1,7 @@
 // dati da inserire da parte dell'utente
 const travelKm =  document.getElementById('travel-km');
 const passengerAge = document.getElementById('passenger-age');
-
+const price = document.getElementById('price')
 const formElement = document.getElementById('form-element');
 // azioni che vengono eseguite all'invio dei dei dati
 formElement.addEventListener('submit', function (event) {
@@ -9,12 +9,14 @@ formElement.addEventListener('submit', function (event) {
     event.preventDefault();
   
     const km = travelKm.value;
-    console.log(km)
+    console.log(km);
     const age = passengerAge.value;
-    console.log(age)
-    priceCalcolator (km,age)
-    console.log(priceCalcolator (km,age))
-   
+    console.log(age);
+    const userPrice = priceCalcolator (km,age);
+    console.log(userPrice)
+    travelKm.value = '';
+    passengerAge.value = '';
+    price.innerText= userPrice
 });
 
 
