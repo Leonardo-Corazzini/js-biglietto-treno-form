@@ -23,7 +23,7 @@ formElement.addEventListener('submit', function (event) {
     const controlKM = controlData (km);
     const age = parseInt(passengerAge.value);
     console.log(age);
-    const controlAge = controlData (km);
+    const controlAge = controlData (age);
     if (controlKM && controlAge){
         const userPrice = priceCalcolator (km,age);
         console.log(userPrice);
