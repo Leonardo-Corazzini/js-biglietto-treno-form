@@ -28,7 +28,7 @@ formElement.addEventListener('submit', function (event) {
         const userPrice = priceCalcolator (km,age);
         console.log(userPrice);
         priceSection.classList.remove('d-none');
-        price.innerText= userPrice;
+        price.innerText= `${userPrice} $`;
     }
     
     // travelKm.value = '';
